@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Melbourne Freeway Cameras</title>
     <style>
@@ -19,37 +18,76 @@
     </style>
 </head>
 <body>
-    <div class="image-grid"></div>
+    <div class="container">
+        <h1>Melbourne Freeway Cameras</h1>
+        <div class="image-grid">
+            <div class="image-card">
+                <img id="webcam1" src="https://cmlwebcam.transurban.com/wimages/webcam01.jpg" alt="Webcam 1">
+            </div>
+            <div class="image-card">
+                <img id="webcam2" src="https://cmlwebcam.transurban.com/wimages/webcam02.jpg" alt="Webcam 2">
+            </div>
+            <div class="image-card">
+                <img id="webcam3" src="https://cmlwebcam.transurban.com/wimages/webcam03.jpg" alt="Webcam 3">
+            </div>
+            <div class="image-card">
+                <img id="webcam4" src="https://cmlwebcam.transurban.com/wimages/webcam04.jpg" alt="Webcam 4">
+            </div>
+            <div class="image-card">
+                <img id="webcam5" src="https://cmlwebcam.transurban.com/wimages/webcam05.jpg" alt="Webcam 5">
+            </div>
+            <div class="image-card">
+                <img id="webcam6" src="https://cmlwebcam.transurban.com/wimages/webcam06.jpg" alt="Webcam 6">
+            </div>
+            <div class="image-card">
+                <img id="webcam7" src="https://cmlwebcam.transurban.com/wimages/webcam07.jpg" alt="Webcam 7">
+            </div>
+            <div class="image-card">
+                <img id="webcam8" src="https://cmlwebcam.transurban.com/wimages/webcam08.jpg" alt="Webcam 8">
+            </div>
+            <div class="image-card">
+                <img id="webcam9" src="https://cmlwebcam.transurban.com/wimages/webcam09.jpg" alt="Webcam 9">
+            </div>
+            <div class="image-card">
+                <img id="webcam10" src="https://cmlwebcam.transurban.com/wimages/webcam10.jpg" alt="Webcam 10">
+            </div>
+            <div class="image-card">
+                <img id="webcam11" src="https://cmlwebcam.transurban.com/wimages/webcam11.jpg" alt="Webcam 11">
+            </div>
+            <div class="image-card">
+                <img id="webcam12" src="https://cmlwebcam.transurban.com/wimages/webcam12.jpg" alt="Webcam 12">
+            </div>
+            <div class="image-card">
+                <img id="webcam13" src="https://cmlwebcam.transurban.com/wimages/webcam13.jpg" alt="Webcam 13">
+            </div>
+            <div class="image-card">
+                <img id="webcam14" src="https://cmlwebcam.transurban.com/wimages/webcam14.jpg" alt="Webcam 14">
+            </div>
+        </div>
+    </div>
 
     <script>
-        const URLs = [
-                "https://cmlwebcam.transurban.com/wimages/webcam01.jpg",
-                "https://cmlwebcam.transurban.com/wimages/webcam02.jpg",
-                "https://cmlwebcam.transurban.com/wimages/webcam03.jpg",
-                "https://cmlwebcam.transurban.com/wimages/webcam04.jpg",
-                "https://cmlwebcam.transurban.com/wimages/webcam05.jpg",
-                "https://cmlwebcam.transurban.com/wimages/webcam06.jpg",
-                "https://cmlwebcam.transurban.com/wimages/webcam07.jpg",
-                "https://cmlwebcam.transurban.com/wimages/webcam08.jpg",
-                "https://cmlwebcam.transurban.com/wimages/webcam09.jpg",
-                "https://cmlwebcam.transurban.com/wimages/webcam10.jpg",
-                "https://cmlwebcam.transurban.com/wimages/webcam11.jpg",
-                "https://cmlwebcam.transurban.com/wimages/webcam12.jpg",
-                "https://cmlwebcam.transurban.com/wimages/webcam13.jpg",
-                "https://cmlwebcam.transurban.com/wimages/webcam14.jpg",
+        const imageUrls = [
+            "https://cmlwebcam.transurban.com/wimages/webcam01.jpg",
+            "https://cmlwebcam.transurban.com/wimages/webcam02.jpg",
+            "https://cmlwebcam.transurban.com/wimages/webcam03.jpg",
+            "https://cmlwebcam.transurban.com/wimages/webcam04.jpg",
+            "https://cmlwebcam.transurban.com/wimages/webcam05.jpg",
+            "https://cmlwebcam.transurban.com/wimages/webcam06.jpg",
+            "https://cmlwebcam.transurban.com/wimages/webcam07.jpg",
+            "https://cmlwebcam.transurban.com/wimages/webcam08.jpg",
+            "https://cmlwebcam.transurban.com/wimages/webcam09.jpg",
+            "https://cmlwebcam.transurban.com/wimages/webcam10.jpg",
+            "https://cmlwebcam.transurban.com/wimages/webcam11.jpg",
+            "https://cmlwebcam.transurban.com/wimages/webcam12.jpg",
+            "https://cmlwebcam.transurban.com/wimages/webcam13.jpg",
+            "https://cmlwebcam.transurban.com/wimages/webcam14.jpg",
         ];
 
-        const imageGrid = document.querySelector('.image-grid');
-
-        URLs.forEach((url) => {
-            let img = document.createElement('img');
-            img.src = url;
-            imageGrid.appendChild(img);
-        });
-
         function updateImages() {
-            imageGrid.childNodes.forEach((img, index) => {
-                img.src = URLs[index] + '?rand=' + Math.random();
+            imageUrls.forEach((url, index) => {
+                const imgElement = document.getElementById(`webcam${index + 1}`);
+                imgElement.src = `${url}?t=${Date.now()}`;
             });
         }
 
