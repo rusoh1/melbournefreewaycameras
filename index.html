@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melbourne Freeway Cameras</title>
+    <style>
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-grid"></div>
+
+    <script>
+        const URLs = [
+                "https://cmlwebcam.transurban.com/wimages/webcam01.jpg",
+                "https://cmlwebcam.transurban.com/wimages/webcam02.jpg",
+                "https://cmlwebcam.transurban.com/wimages/webcam03.jpg",
+                "https://cmlwebcam.transurban.com/wimages/webcam04.jpg",
+                "https://cmlwebcam.transurban.com/wimages/webcam05.jpg",
+                "https://cmlwebcam.transurban.com/wimages/webcam06.jpg",
+                "https://cmlwebcam.transurban.com/wimages/webcam07.jpg",
+                "https://cmlwebcam.transurban.com/wimages/webcam08.jpg",
+                "https://cmlwebcam.transurban.com/wimages/webcam09.jpg",
+                "https://cmlwebcam.transurban.com/wimages/webcam10.jpg",
+                "https://cmlwebcam.transurban.com/wimages/webcam11.jpg",
+                "https://cmlwebcam.transurban.com/wimages/webcam12.jpg",
+                "https://cmlwebcam.transurban.com/wimages/webcam13.jpg",
+                "https://cmlwebcam.transurban.com/wimages/webcam14.jpg",
+        ];
+
+        const imageGrid = document.querySelector('.image-grid');
+
+        URLs.forEach((url) => {
+            let img = document.createElement('img');
+            img.src = url;
+            imageGrid.appendChild(img);
+        });
+
+        function updateImages() {
+            imageGrid.childNodes.forEach((img, index) => {
+                img.src = URLs[index] + '?rand=' + Math.random();
+            });
+        }
+
+        setInterval(updateImages, 200);
+    </script>
+</body>
+</html>
